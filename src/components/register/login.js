@@ -12,38 +12,48 @@ constructor(props){
   username:'',
   password:''
   }
+  // this.handlePassword = this.handlePassword.bind(this);
+  // this.handleUsername= this.handleUsername.bind(this);
 
 }
  handleClick(event){
      console.log("login button pressed")
-        let url = "http://13.233.216.255:7000/api/auth/signup/"
+        let url = "http://codezilla.tk:8000/api/auth/signup/"
+        console.log(this.state)
        let data = {
-        "email":this.state.username,
-        "password":this.state.password
+        username:this.state.username,
+        password:this.state.password
         }
-        fetch(url, {
-            method: "POST", // *GET, POST, PUT, DELETE, etc.
-            mode: "cors", // no-cors, cors, *same-origin
-            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: "same-origin", // include, *same-origin, omit
-            headers: {
-                "Content-Type": "application/json",
-                // "Content-Type": "application/x-www-form-urlencoded",
-            },
-            redirect: "follow", // manual, *follow, error
-            referrer: "no-referrer", // no-referrer, *client
-            body: JSON.stringify(data), // body data type must match "Content-Type" header
-        })
-        .then(
-                response => response.json(),
-            console.log(JSON.stringify())
-                
-            
-            
-        ) // parses response to JSON
-       .catch(error => console.error(error));
+        console.log(data)
+        // data = {
+        //   username : "ghjk",
+        //   password : "fgh"
+        // }
+
+
+
+       fetch("http://codezilla.tk:8000/api/auth/signup/", {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then(res=>res.json())
+        .then(res => console.log(res));
+
+
 }
 
+handleUsername(event) {
+  console.log(event+"D")
+  this.setState({username: event.target.value});
+}
+handlePassword(event) {
+  console.log("D")
+
+  this.setState({password: event.target.value});
+}
 render() {
     return (
       <div>
@@ -56,6 +66,8 @@ render() {
                 margin="normal"
              hintText="Enter your Username"
              floatingLabelText="Username"
+             value={this.state.value} onChange={this.handleUsername} 
+
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
            <br/>
@@ -65,6 +77,8 @@ render() {
                type="password"
                hintText="Enter your Password"
                floatingLabelText="Password"
+               value={this.state.value} onChange={this.handlePassword} 
+               Onchange={console.log("field change")}
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
              <br/>
