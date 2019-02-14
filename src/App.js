@@ -4,6 +4,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // http://stackoverflow.com/a/34015469/988941
 import DashBoard from './components/dashboard'
 import './css/App.css';
+import Drawer from './components/drawer';
 
 import Loginscreen from './components/loginpage'
 import QRCode from './components/qrcode'
@@ -29,7 +30,8 @@ class App extends Component {
         {this.state.loginPage}
         {this.state.uploadScreen}
         <div>
-            <DashBoard/>
+        <Drawer/>
+            {/* <DashBoard/> */}
         </div>
       </div>
     );
