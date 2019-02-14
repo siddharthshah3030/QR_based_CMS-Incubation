@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
-import axios from 'axios';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import AppBar from '@material-ui/core/AppBar';
+import RaisedButton from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+// import axios from 'axios';
 class Register extends Component {
   constructor(props){
     super(props);

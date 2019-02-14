@@ -1,8 +1,8 @@
 
 
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import RaisedButton from '@material-ui/core/Button';
 import Login from './register/login';
 import Register from './register/register';
 class Loginscreen extends Component {
