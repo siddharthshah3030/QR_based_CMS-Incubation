@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Drawer from './drawer';
+
 
 class DashBoard extends React.Component {
     constructor(props){
@@ -8,11 +10,11 @@ class DashBoard extends React.Component {
 
       return (
         <div>
-
+            <Drawer/>
         </div>
       );
     }
   }
-  export default QRcode;
+  export default DashBoard;
 
 

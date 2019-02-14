@@ -8,8 +8,9 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import InboxIcon from '@material-ui/core/SvgIcon';
+import MailIcon from '@material-ui/core/SvgIcon';
+// import MailIcon from '@material-ui/icons/Mail';
 
 const styles = {
   list: {
@@ -95,58 +96,16 @@ class Drawer extends React.Component {
             {sideList}
           </div>
         </SwipeableDrawer>
-        <SwipeableDrawer
-          anchor="top"
-          open={this.state.top}
-          onClose={this.toggleDrawer('top', false)}
-          onOpen={this.toggleDrawer('top', true)}
-        >
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('top', false)}
-            onKeyDown={this.toggleDrawer('top', false)}
-          >
-            {fullList}
-          </div>
-        </SwipeableDrawer>
-        <SwipeableDrawer
-          anchor="bottom"
-          open={this.state.bottom}
-          onClose={this.toggleDrawer('bottom', false)}
-          onOpen={this.toggleDrawer('bottom', true)}
-        >
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('bottom', false)}
-            onKeyDown={this.toggleDrawer('bottom', false)}
-          >
-            {fullList}
-          </div>
-        </SwipeableDrawer>
-        <SwipeableDrawer
-          anchor="right"
-          open={this.state.right}
-          onClose={this.toggleDrawer('right', false)}
-          onOpen={this.toggleDrawer('right', true)}
-        >
-          <div
-            tabIndex={0}
-            role="button"
-            onClick={this.toggleDrawer('right', false)}
-            onKeyDown={this.toggleDrawer('right', false)}
-          >
-            {sideList}
-          </div>
-        </SwipeableDrawer>
+
+
+
       </div>
     );
   }
 }
 
-SwipeableTemporaryDrawer.propTypes = {
+Drawer.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SwipeableTemporaryDrawer);
+export default withStyles(styles)(Drawer);
