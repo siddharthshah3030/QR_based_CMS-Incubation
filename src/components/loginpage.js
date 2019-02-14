@@ -51,10 +51,16 @@ class Loginscreen extends Component {
                         isLogin:true
                     })
         }
+
     }
   render() {
+    let divStyle = {
+        
+      marginTop: "150px",
+      // margin: "auto",
+    };
     return (
-      <div className="loginscreen">
+      <div style={divStyle} className="loginscreen">
         {this.state.loginscreen}
         <div>
           {this.state.loginmessage}
@@ -71,8 +77,5 @@ class Loginscreen extends Component {
     );
   }
 }
-const style = {
-  margin: 15,
-};
 export default Loginscreen;
 
