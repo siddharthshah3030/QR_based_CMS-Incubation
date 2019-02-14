@@ -45,15 +45,7 @@ constructor(props){
 
 }
 
-handleUsername(event) {
-  console.log(event+"D")
-  this.setState({username: event.target.value});
-}
-handlePassword(event) {
-  console.log("D")
 
-  this.setState({password: event.target.value});
-}
 render() {
     return (
       <div>
@@ -62,24 +54,31 @@ render() {
           <AppBar             title="Login"
            />
            <TextField
+                inputRef={el => this.he = el} 
+
                 label="Name"
                 margin="normal"
              hintText="Enter your Username"
              floatingLabelText="Username"
-             value={this.state.value} onChange={this.handleUsername} 
-
-             onChange = {(event,newValue) => this.setState({username:newValue})}
+             value={this.state.value}
+             onChange = {(event,newValue) => {
+              this.setState({username:this.he.value})
+             }}
              />
            <br/>
              <TextField
+              inputRef={el => this.fv = el} 
                 label="Password"
                 margin="normal"
                type="password"
                hintText="Enter your Password"
                floatingLabelText="Password"
-               value={this.state.value} onChange={this.handlePassword} 
-               Onchange={console.log("field change")}
-               onChange = {(event,newValue) => this.setState({password:newValue})}
+               value={this.state.value} 
+               onChange = {(event,newValue) => {
+                 this.setState({password:this.fv.value})
+             
+               }
+                }
                />
              <br/>
              <Button variant="contained" color="primary"  onClick={(event) => this.handleClick(event)}>
