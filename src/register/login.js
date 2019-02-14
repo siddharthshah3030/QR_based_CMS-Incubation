@@ -1,14 +1,15 @@
 
 import React, { Component } from 'react';
+
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import AppBar from '@material-ui/core/AppBar';
-import RaisedButton from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 class Login extends Component {
 constructor(props){
   super(props);
   this.state={
-  username:'',
+  username:'user',
   password:''
   }
  }
@@ -21,19 +22,27 @@ render() {
              title="Login"
            />
            <TextField
+                     label="Name"
+                     margin="normal"
+
              hintText="Enter your Username"
              floatingLabelText="Username"
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
            <br/>
              <TextField
+                     label="Password"
+                     margin="normal"
                type="password"
                hintText="Enter your Password"
                floatingLabelText="Password"
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
              <br/>
-             <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+             {/* <RaisedButton variant="contained" color="primary" label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/> */}
+             <Button variant="contained" color="primary"  onClick={(event) => this.handleClick(event)}>
+        Submit
+      </Button>        
          </div>
          </MuiThemeProvider>
       </div>
