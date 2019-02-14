@@ -23,24 +23,24 @@ class Register extends Component {
              title="Register"
            />
            <TextField
-                                label="First Name"
-                                margin="normal"
+            label="First Name"
+            margin="normal"
              hintText="Enter your First Name"
              floatingLabelText="First Name"
              onChange = {(event,newValue) => this.setState({first_name:newValue})}
              />
            <br/>
            <TextField
-                                label="Last Name"
-                                margin="normal"
+            label="Last Name"
+            margin="normal"
              hintText="Enter your Last Name"
              floatingLabelText="Last Name"
              onChange = {(event,newValue) => this.setState({last_name:newValue})}
              />
            <br/>
            <TextField
-                                label="Email"
-                                margin="normal"
+            label="Email"
+            margin="normal"
              hintText="Enter your Email"
              type="email"
              floatingLabelText="Email"
@@ -48,15 +48,14 @@ class Register extends Component {
              />
            <br/>
            <TextField
-                                label="Password"
-                                margin="normal"
+            label="Password"
+            margin="normal"
              type = "password"
              hintText="Enter your Password"
              floatingLabelText="Password"
              onChange = {(event,newValue) => this.setState({password:newValue})}
              />
            <br/>
-           {/* <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/> */}
            <Button variant="contained" color="primary"  onClick={(event) => this.handleClick(event)}>
              Submit
             </Button>
@@ -72,9 +71,7 @@ const style = {
 export default Register;
 
 
-// import Login from './Login';
-// class Register extends Component {
-// ...
+
 // handleClick(event){
 //     var apiBaseUrl = "http://localhost:4000/api/";
 //     console.log("values",this.state.first_name,this.state.last_name,this.state.email,this.state.password);

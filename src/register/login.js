@@ -22,24 +22,22 @@ render() {
              title="Login"
            />
            <TextField
-                     label="Name"
-                     margin="normal"
-
+                label="Name"
+                margin="normal"
              hintText="Enter your Username"
              floatingLabelText="Username"
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
            <br/>
              <TextField
-                     label="Password"
-                     margin="normal"
+                label="Password"
+                margin="normal"
                type="password"
                hintText="Enter your Password"
                floatingLabelText="Password"
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
              <br/>
-             {/* <RaisedButton variant="contained" color="primary" label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/> */}
              <Button variant="contained" color="primary"  onClick={(event) => this.handleClick(event)}>
         Submit
       </Button>        
