@@ -22,6 +22,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/core/SvgIcon';
 
 import MailIcon from '@material-ui/core/SvgIcon';
+import SvgIcon from '@material-ui/core/SvgIcon';
 
 
 const drawerWidth = 240;
@@ -82,7 +83,13 @@ const styles = theme => ({
     marginLeft: 0,
   },
 });
-
+function HomeIcon(props) {
+    return (
+      <SvgIcon {...props}>
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+      </SvgIcon>
+    );
+  }
 class PersistentDrawerLeft extends React.Component {
   state = {
     open: false,
@@ -116,6 +123,8 @@ class PersistentDrawerLeft extends React.Component {
               onClick={this.handleDrawerOpen}
               className={classNames(classes.menuButton, open && classes.hide)}
             >
+                        <HomeIcon className={classes.icon} color="white" />
+
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
@@ -134,6 +143,8 @@ class PersistentDrawerLeft extends React.Component {
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.handleDrawerClose}>
+            <HomeIcon className={classes.icon} color="primary" />
+
               {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
             </IconButton>
           </div>
@@ -162,30 +173,7 @@ class PersistentDrawerLeft extends React.Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          <Typography paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent
-            elementum facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in
-            hendrerit gravida rutrum quisque non tellus. Convallis convallis tellus id interdum
-            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing.
-            Amet nisl suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod quis
-            viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo.
-            Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus
-            at augue. At augue eget arcu dictum varius duis at consectetur lorem. Velit sed
-            ullamcorper morbi tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-          </Typography>
-          <Typography paragraph>
-            Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-            facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-            tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-            consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus
-            sed vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in.
-            In hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-            et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique
-            sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo
-            viverra maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam
-            ultrices sagittis orci a.
-          </Typography>
+
         </main>
       </div>
     );
