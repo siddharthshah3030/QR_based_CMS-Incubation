@@ -40,10 +40,18 @@ constructor(props){
         },
         body: JSON.stringify(data)
       }).then(res=>res.json())
-        .then(res => console.log(res));
+        .then(res =>{
+          localStorage.setItem("token", res.token);
+          console.log(localStorage.getItem("token"))
+          console.log(res.token);
+        })
+        .catch(function(e) {
+          console.log(e.message); // "oh, no!"
+        })
+      }
 
 
-}
+
 
 
 render() {
@@ -53,6 +61,7 @@ render() {
           <div>
           <AppBar             title="Login"
            />
+           {localStorage.getItem("token")}
            <TextField
                 inputRef={el => this.he = el} 
 

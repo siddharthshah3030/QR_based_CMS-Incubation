@@ -64,7 +64,6 @@ class Loginscreen extends Component {
         {this.state.loginscreen}
         <div>
           {this.state.loginmessage}
-            {` `}
           <MuiThemeProvider>
             <div>
                <Button label={this.state.buttonLabel} variant="outlined" color="primary"  onClick={(event) => this.handleClick(event)}>
