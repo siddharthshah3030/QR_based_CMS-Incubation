@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import AppBar from '@material-ui/core/AppBar';
-import RaisedButton from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 // import axios from 'axios';
 class Register extends Component {
@@ -23,18 +23,24 @@ class Register extends Component {
              title="Register"
            />
            <TextField
+                                label="First Name"
+                                margin="normal"
              hintText="Enter your First Name"
              floatingLabelText="First Name"
              onChange = {(event,newValue) => this.setState({first_name:newValue})}
              />
            <br/>
            <TextField
+                                label="Last Name"
+                                margin="normal"
              hintText="Enter your Last Name"
              floatingLabelText="Last Name"
              onChange = {(event,newValue) => this.setState({last_name:newValue})}
              />
            <br/>
            <TextField
+                                label="Email"
+                                margin="normal"
              hintText="Enter your Email"
              type="email"
              floatingLabelText="Email"
@@ -42,13 +48,18 @@ class Register extends Component {
              />
            <br/>
            <TextField
+                                label="Password"
+                                margin="normal"
              type = "password"
              hintText="Enter your Password"
              floatingLabelText="Password"
              onChange = {(event,newValue) => this.setState({password:newValue})}
              />
            <br/>
-           <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+           {/* <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/> */}
+           <Button variant="contained" color="primary"  onClick={(event) => this.handleClick(event)}>
+             Submit
+            </Button>
           </div>
          </MuiThemeProvider>
       </div>
