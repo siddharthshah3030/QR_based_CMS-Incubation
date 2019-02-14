@@ -15,12 +15,12 @@ constructor(props){
 
 }
  handleClick(event){
-        let url = "/login"
+     console.log("login button pressed")
+        let url = "http://13.233.216.255:7000/api/auth/signup/"
        let data = {
         "email":this.state.username,
         "password":this.state.password
         }
-        console.log("login button pressed")
         fetch(url, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
             mode: "cors", // no-cors, cors, *same-origin
@@ -49,8 +49,7 @@ render() {
       <div>
         <MuiThemeProvider>
           <div>
-          <AppBar
-             title="Login"
+          <AppBar             title="Login"
            />
            <TextField
                 label="Name"
