@@ -21,6 +21,15 @@ class App extends Component {
   componentWillMount(){
     var loginPage =[];
     loginPage.push(<Loginscreen parentContext={this}/>);
+    var uploadScreen =[];
+    uploadScreen.push(<DashBoard parentContext={this}/>);
+    if(localStorage.getItem("token")){
+      this.setState({
+        token : true,
+        uploadScreen : uploadScreen
+      }) 
+    } else 
+
     this.setState({
                   loginPage:loginPage
                     })
@@ -28,6 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         {this.state.loginPage}
         {this.state.uploadScreen}
         <div>
