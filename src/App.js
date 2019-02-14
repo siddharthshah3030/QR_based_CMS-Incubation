@@ -6,6 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import './css/App.css';
 
 import Loginscreen from './components/loginpage'
+import QRCode from './components/qrcode'
 // injectTapEventPlugin();
 class App extends Component {
   constructor(props){
@@ -27,6 +28,9 @@ class App extends Component {
       <div className="App">
         {this.state.loginPage}
         {this.state.uploadScreen}
+        <div>
+            <QRCode></QRCode>
+        </div>
       </div>
     );
   }
