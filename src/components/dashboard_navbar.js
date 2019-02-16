@@ -13,7 +13,7 @@ class menubar extends Component {
     render() {
         return (
             <div>
-                <nav class="nav-wrapper">
+                <nav className="nav-wrapper">
                     <div className="container">
                         <div className="cnav">
                             <NavLink className="" to="/dashboard/visitor/">Visitor</NavLink>

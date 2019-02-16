@@ -10,7 +10,7 @@ class Demo extends React.Component {
                 fgColor="#000000"
                 level="Q"
                 style={{ width: 256 }}
-                value={user_id}
+                value={this.props.qrvalue}
             />
         );
     }
