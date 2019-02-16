@@ -1,54 +1,52 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
 import burl from '../../url';
+
 // import axios from 'axios';
 class Register extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      phone: '',
-      email: '',
-      password: '',
-      user_type: ""
-    }
+  state = {
+    error: false
   }
-  handleClick(event) {
-    console.log(this.state)
+
+  componentDidMount = () => {
+    // let form = document.querySelector('.signup-form')
+    this.username = document.querySelector('#username')
+    this.password = document.querySelector('#password')
+    this.email = document.querySelector('#email')
+    this.phone = document.querySelector('#phone')
+    this.user_type = document.querySelector('#user_type')
+  }
+  
+  
+  signup_handler = (event) => {
+    event.preventDefault()
     let data = {
-      username: this.state.username,
-      password: this.state.password,
-      user_type: this.state.user_type,
-      phone: this.state.phone,
-      email: this.state.email
-
+      username: this.username.value,
+      password: this.password.value,
+      phone: this.phone.value,
+      email: this.email.value,
+      user_type: this.user_type.value,
     }
-    console.log(data)
+    console.log(data);
 
 
-
-    console.log("login button pressed")
     fetch(burl + "/api/auth/signup/", {
       method: 'post',
       headers: {
-        'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     }).then(res => res.json())
       .then(res => {
-        if (!res.error)
-          localStorage.setItem("token", res.token);
         console.log(res);
+        if (!res.error){
+          localStorage.setItem("token", res.token);
+          this.props.history.push('/dashboard/')
+        }else{
+          this.setState({
+            ...this.state,
+            error: 'Please the check the inputs'
+          })// end of setstate
+        }
 
         console.log(localStorage.getItem("token"))
       })
@@ -57,112 +55,68 @@ class Register extends Component {
       })
   }
 
-  handleChange = event => {
-    this.setState({ user_type: event.target.value });
-  };
   render() {
     return (
-      <div className='signup'>
-        <div className="display-4 text-center">
-          Signup
-        </div>
-        <div>
-          <AppBar
-            title="Register"
-          />
-          <div>
-            <TextField
-              inputRef={el => this.a = el}
-              label="username"
-              margin="normal"
-              hintText="Enter your Username"
-              floatingLabelText="Username"
-              value={this.state.value}
-              onChange={(event, newValue) => {
-                this.setState({ username: this.a.value })
-              }}
-            />
+      <div className="signup">
+        <div className="text-danger">{this.state.error}</div>
+        <h3 className="text-center">Signup</h3>
+        <form className='signup-form'>
+          <div class="input-group mt-3">
+            <div class="input-group-prepend">
+              <button disabled className="btn btn-success">
+                <i className="fas fa-user"></i>
+              </button>
+            </div>
+            <input type="text" class="form-control" id='username' placeholder="Username" />
           </div>
-          <div>
-            <TextField
-              inputRef={el => this.b = el}
 
-              label="password"
-              margin="normal"
-              hintText="Enter your password"
-              floatingLabelText="password"
-              value={this.state.value}
-              onChange={(event, newValue) => {
-                this.setState({ password: this.b.value })
-              }}
-            />
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <button disabled className="btn btn-success">
+                <i className="fas fa-key"></i>
+              </button>
+            </div>
+            <input type="password" class="form-control" id='password' placeholder="Password" />
           </div>
-          <div>
-            <TextField
-              inputRef={el => this.c = el}
 
-              label="email"
-              margin="normal"
-              hintText="Enter your email"
-              floatingLabelText="email"
-              value={this.state.value}
-              onChange={(event, newValue) => {
-                this.setState({ email: this.c.value })
-              }}
-            />
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <button disabled className="btn btn-success">
+                <i className="fas fa-envelope"></i>
+              </button>
+            </div>
+            <input type="email" class="form-control" id='email' placeholder="Email" />
           </div>
-          <div>
-            <TextField
-              inputRef={el => this.d = el}
 
-              label="phone"
-              margin="normal"
-              hintText="Enter your phone"
-              floatingLabelText="phone"
-              value={this.state.value}
-              onChange={(event, newValue) => {
-                this.setState({ phone: this.d.value })
-              }}
-            />
+          <div class="input-group mt-2">
+            <div class="input-group-prepend">
+              <button disabled className="btn btn-success">
+                <i class="fas fa-mobile"></i>
+              </button>
+            </div>
+            <input type="text" class="form-control" id='phone' placeholder="Phone" />
           </div>
-          <div>
-            <Select
-              value={this.state.age}
-              onChange={this.handleChange}
-              inputProps={{
-                name: 'age',
-                id: 'age-simple',
-              }}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
+          <div className="input-group mt-2">
+            <select id="user_type" className='form-control'>
+              <option value="Startup Worker">Startup Worker</option>
+              <option value="Receptionist">Receptionist</option>
+              <option value="Librarian">Librarian</option>
+              <option value="Startup">Startup</option>
+              <option value="Others">Others</option>
+            </select>
           </div>
-          <FormControl component="fieldset" >
-            <RadioGroup
-              aria-label="Role"
-              name="Role"
-              value={this.state.value}
-              onChange={this.handleChange}
-            >
-              <FormControlLabel value="Startup Worker" control={<Radio />} label="Startup Worker" />
-              <FormControlLabel value="Receptionist" control={<Radio />} label="Receptionist" />
-              <FormControlLabel value="Librarian" control={<Radio />} label="Librarian" />
-              <FormControlLabel value="Gaurd" control={<Radio />} label="Gaurd" />
-              <FormControlLabel value="Cafeteria" control={<Radio />} label="Cafeteria" />
-              <FormControlLabel value="Others" control={<Radio />} label="Other" />
-            </RadioGroup>
-          </FormControl>
-          <Button variant="contained" color="primary" onClick={this.handleClick}>
-            Submit
-            </Button>
-        </div>
+          <div className="text-center">
+            <button
+              onClick={this.signup_handler}
+              className="btn btn-primary">
+              Signup
+            </button>
+          </div>
+        </form>
       </div>
-    );
+    )
+
   }
 }
+
 export default Register;
