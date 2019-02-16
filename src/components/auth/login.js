@@ -36,16 +36,17 @@ class Login extends Component {
       body: JSON.stringify(data)
     }).then(res => res.json())
       .then(res => {
-        localStorage.setItem("token", res.token);
-        localStorage.setItem("uid", res.id);
         if (res.error) {
           this.setState({
             ...this.state,
             error: true
           })// end of setstate
+          return
         }
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("uid", res.id);
 
-        if (res.user_type === 'Startup Worker') {
+        if (res.user === 'Startup Worker') {
           this.props.history.push('/dashboard/')
         } else {
           this.props.history.push('/staff/')

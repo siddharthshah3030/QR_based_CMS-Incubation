@@ -1,5 +1,6 @@
 @import './bootstrap.css';
 @import './menubar.scss';
+@import './common.scss';
 
 .cover-pic{
   background: url('../assets/back-img.jpg');
@@ -7,8 +8,8 @@
 }
 
 .qr-scanner {
-  width: 200px;
-  height: 200px;
+  width: 350px;
+  height: 350px;
   margin: auto;
 }
 
@@ -29,4 +30,9 @@
   input{
     display: block;
   }
+}
+
+.gaurd_qr_scanner{
+  width: 300px;
+  height: 300px;
 }

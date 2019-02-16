@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import burl from '../../url';
+import { NavLink } from 'react-router-dom'
 
 // import axios from 'axios';
 class Register extends Component {
@@ -38,19 +39,20 @@ class Register extends Component {
     }).then(res => res.json())
       .then(res => {
         console.log(res);
-        if (!res.error) {
-          localStorage.setItem("token", res.token);
-          localStorage.setItem("uid", res.id);
-          if(res.user_type==='Startup Worker'){
-            this.props.history.push('/dashboard/')
-          }else{
-            this.props.history.push('/staff/')
-          }
-        } else {
+        if (res.error) {
           this.setState({
             ...this.state,
             error: true
           })// end of setstate
+          return
+        }
+
+        localStorage.setItem("token", res.token);
+        localStorage.setItem("uid", res.id);
+        if (res.user_type === 'Startup Worker') {
+          this.props.history.push('/dashboard/')
+        } else {
+          this.props.history.push('/staff/')
         }
 
         console.log(localStorage.getItem("token"))
@@ -118,6 +120,10 @@ class Register extends Component {
             </button>
           </div>
         </form>
+        <div className="text-center mt-3">
+          <span>Already have and account ? </span>
+          <NavLink to='/'>Signup</NavLink>
+        </div>
       </div>
     )
 
