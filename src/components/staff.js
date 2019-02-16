@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Switch, Route } from "react-router-dom";
 
-import Visitor from './visitor/gaurd_visitor'
+import Visitor from './gaurd_visitor'
 import Navbar from './staff_navbar'
 
 export default class staff extends Component {

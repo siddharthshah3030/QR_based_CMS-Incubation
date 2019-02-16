@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import QrScanner from '../qrscanner'
-import burl from '../../url'
+import QrScanner from './qrscanner'
+import burl from '../url'
 
 export default class gaurd_visitor extends Component {
     state = {

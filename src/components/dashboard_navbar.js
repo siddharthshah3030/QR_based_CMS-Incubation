@@ -9,7 +9,7 @@ class menubar extends Component {
         localStorage.removeItem('uid')
         this.props.history.push('/')
     }
-    
+
     render() {
         return (
             <div>

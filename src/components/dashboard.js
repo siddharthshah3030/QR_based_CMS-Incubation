@@ -4,11 +4,13 @@ import Rental from "./rental/rentallist.js";
 import categoryList from "./categoryList.js";
 import Card from "./card.js";
 import QrCodeValue from "./qrcode.js";
-import QrScanner from "./qrscanner";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import ItemList from "./rental/itemList.js";
 import ItemBook from "./rental/itemBook.js";
+import Navbar from './dashboard_navbar'
+
+
 class DashBoard extends React.Component {
   constructor(props) {
     super(props);
@@ -18,13 +20,13 @@ class DashBoard extends React.Component {
     return (
       <div>
         <div >
+          <Navbar />
           <div className="frame">
             <Switch>
-              <Route  path="/dashboard/scanner" component={QrScanner} />
-              {/* <Route  path="/dashboard/code" component={QrCodeValue} /> */}
-              <Route  path="/dashboard/rental" component={Rental} />
-              <Route  path="/dashboard/itemlist" component={ItemList} />
-              <Route  path="/dashboard/itembook" component={ItemBook} />
+              <Route  path="/dashboard/code" component={QrCodeValue} />
+              <Route path="/dashboard/rental" component={Rental} />
+              <Route path="/dashboard/itemlist" component={ItemList} />
+              <Route path="/dashboard/itembook" component={ItemBook} />
               {/* <Route path="/dashboard/rentlist" component={RentList} /> */}
             </Switch>
           </div>
