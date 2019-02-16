@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import "./css/App.scss";
 
 import Auth from './components/auth/auth'
-
+import Dashboard from './components/dashboard.js'
 class App extends Component {
   // constructor(props) {
   //   super(props);
@@ -39,6 +39,8 @@ class App extends Component {
       //   </div>
       // </div>
       <Switch>
+        <Route path='/dashboard' component={Dashboard} />
+
         <Route path='/' component={Auth} />
       </Switch>
     );

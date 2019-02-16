@@ -1,66 +1,75 @@
-import React from 'react';
-import Card from './card.js' 
 import burl from '../url';
 
+import React from 'react';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import classnames from 'classnames';
 
-class CategoryList extends React.Component {
-  constructor(props){
+export default class Example extends React.Component {
+  constructor(props) {
     super(props);
-    this.state={
-    username:'',
-    password:''
-    }
-    // this.handlePassword = this.handlePassword.bind(this);
-    // this.handleUsername= this.handleUsername.bind(this);
-  
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      activeTab: '1'
+    };
   }
 
-componentWillMount() {
-  fetch(burl +"/api/resources/list/", {
-    method: 'get',
-    headers: {
-      // 'Accept': 'application/json, text/plain, */*',
-      'Content-Type': 'application/json',
-      'Authorization': 'Token ad309027364a277e66eb3bf325e826dadf477704'
-
-    },
-  }).then(res=>res.json())
-    .then(res =>{
-      console.log("fetching data")
-      console.log(res);
-    })
-    .catch(function(e) {
-      console.log(e); // "oh, no!"
-    })
+  toggle(tab) {
+    if (this.state.activeTab !== tab) {
+      this.setState({
+        activeTab: tab
+      });
+    }
+  }
+  render() {
+    return (
+      <div>
+        <Nav tabs>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '1' })}
+              onClick={() => { this.toggle('1'); }}
+            >
+              Tab1
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '2' })}
+              onClick={() => { this.toggle('2'); }}
+            >
+              Moar Tabs
+            </NavLink>
+          </NavItem>
+        </Nav>
+        <TabContent activeTab={this.state.activeTab}>
+          <TabPane tabId="1">
+            <Row>
+              <Col sm="12">
+                <h4>Tab 1 Contents</h4>
+              </Col>
+            </Row>
+          </TabPane>
+          <TabPane tabId="2">
+            <Row>
+              <Col sm="6">
+                <Card body>
+                  <CardTitle>Special Title Treatment</CardTitle>
+                  <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                  <Button>Go somewhere</Button>
+                </Card>
+              </Col>
+              <Col sm="6">
+                <Card body>
+                  <CardTitle>Special Title Treatment</CardTitle>
+                  <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                  <Button>Go somewhere</Button>
+                </Card>
+              </Col>
+            </Row>
+          </TabPane>
+        </TabContent>
+      </div>
+    );
+  }
 }
-
-render() {
-  var style = {
-    // color: "white",
-    // fontSize: 200,
-    
-    // marginTop: 100,
-    // paddingTop: 100
-  };
-  return (
-    <div style={style}>>
-    <div  style={{ display: 'inline-flex' }} >
-    {/* <RentList/> */}
-    <Card  style={{ alignSelf: 'center' }} />
-    <Card  style={{ alignSelf: 'center' }}/>
-
-</div>
-
-  <br/>
-<div  style={{ display: 'inline-flex' }} >
-    {/* <RentList/> */}
-    <Card  style={{ alignSelf: 'center' }} />
-    <Card  style={{ alignSelf: 'center' }}/>
-
-</div>
-  
-</div>
-  )
-}
-}
-export default CategoryList;
