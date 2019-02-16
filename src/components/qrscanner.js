@@ -28,7 +28,7 @@ export default class Test extends Component {
         paddingTop : 50
       };
     return (
-      <div className="qr-scanner">
+      <div  style={style} className="qr-scanner">
         <QrReader
           delay={this.state.delay}
           onError={this.handleError}

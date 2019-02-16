@@ -22,13 +22,14 @@ class DashBoard extends React.Component {
     };
     return (
       <div>
-        <div style={style}>
+        <div >
           {/* <QrCodeValue style={style} /> */}
           <div className="frame">
             <Switch>
-              <Route path="/dashboard/scanner" component={QrScanner} />
-              <Route path="/dashboard/code" component={QrCodeValue} />
-              <Route path="/dashboard/rental" component={categoryList} />
+              <Route  path="/dashboard/scanner" component={QrScanner} />
+              <Route  path="/dashboard/code" component={QrCodeValue} />
+              <Route  path="/dashboard/rental" component={categoryList} />
+              <Route path="/dashboard/rentlist" component={RentList} />
             </Switch>
           </div>
           <Button
