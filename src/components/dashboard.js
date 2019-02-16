@@ -1,12 +1,6 @@
-import React, { Component } from "react";
-import Drawer from "./drawer";
-import RentList from "./rentList";
-import categoryList from "./categoryList.js";
-import Card from "./card.js";
-import QrCodeValue from "./qrcode.js";
+import React from "react";
 import QrScanner from "./qrscanner";
 import { Switch, Route, withRouter } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 
 class DashBoard extends React.Component {
   constructor(props) {

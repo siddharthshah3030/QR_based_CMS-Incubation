@@ -11,6 +11,7 @@ export default class staff extends Component {
                 <Navbar />
                 <Switch>
                     <Route path="/staff/visitor/" component={Visitor} />
+                    <Route path="/staff/" component={Visitor} />
                     {/* <Route path="/dashboard/code" component={QrCodeValue} />
                     <Route path="/dashboard/rental" component={categoryList} />
                     <Route path="/dashboard/rentlist" component={RentList} /> */}

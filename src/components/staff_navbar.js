@@ -16,6 +16,7 @@ class menubar extends Component {
                 <nav class="nav-wrapper">
                     <div className="container">
                         <div className="cnav">
+                            <NavLink className="" to="/staff/">Home</NavLink>
                             <NavLink className="" to="/staff/visitor/">Visitor</NavLink>
                             <NavLink className="" to="/staff/librarian/">Librarian</NavLink>
                             <NavLink className="" to="/staff/caffeteria/">Caffeteria</NavLink>

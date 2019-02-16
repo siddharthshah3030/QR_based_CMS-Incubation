@@ -39,7 +39,7 @@ export default class gaurd_visitor extends Component {
     }
     render() {
         return (
-            <div>
+            <div className='gaurd'>
                 <div className="row">
                     <div className="col-md-6">
                         {this.state.qrcode_active &&
@@ -47,8 +47,13 @@ export default class gaurd_visitor extends Component {
                         }
                     </div>
                     <div className="col-md-6">
-                        <div className="text-center">
-                            user here
+                        <div>
+                            <h3 className='text-center'>Person details</h3>
+                            <div className="mt-2 vhead">UserId:</div>
+                            <div className="mt-2 vhead">Username:</div>
+                            <div className="mt-2 vhead">Phone:</div>
+                            <div className="mt-2 vhead">Email:</div>
+                            <div className="mt-2 vhead">Created_on:</div>
                         </div>
                     </div>
                 </div>

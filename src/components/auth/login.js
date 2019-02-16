@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import burl from '../../url';
 
 import { NavLink } from 'react-router-dom'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -39,7 +38,14 @@ class Login extends Component {
       .then(res => {
         localStorage.setItem("token", res.token);
         localStorage.setItem("uid", res.id);
-        if (res.user_type == 'Startup Worker') {
+        if (res.error) {
+          this.setState({
+            ...this.state,
+            error: true
+          })// end of setstate
+        }
+
+        if (res.user_type === 'Startup Worker') {
           this.props.history.push('/dashboard/')
         } else {
           this.props.history.push('/staff/')
@@ -60,6 +66,7 @@ class Login extends Component {
       <div>
         <div>
           <div className="text-center display-4">Welcome!!!</div>
+          <div className="text-danger">{this.state.error && "Please check your credentials"}</div>
           <AppBar title="Login"
           />
           <TextField

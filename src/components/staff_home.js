@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import Qrcode from '../qrcode'
 
-export default class user_visitor extends Component {
+export default class staff_home extends Component {
     render() {
         return (
             <div>
-
+                staff home
             </div>
         )
     }

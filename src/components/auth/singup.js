@@ -41,7 +41,7 @@ class Register extends Component {
         if (!res.error) {
           localStorage.setItem("token", res.token);
           localStorage.setItem("uid", res.id);
-          if(res.user_type=='Startup Worker'){
+          if(res.user_type==='Startup Worker'){
             this.props.history.push('/dashboard/')
           }else{
             this.props.history.push('/staff/')
@@ -49,7 +49,7 @@ class Register extends Component {
         } else {
           this.setState({
             ...this.state,
-            error: 'Please the check the inputs'
+            error: true
           })// end of setstate
         }
 
@@ -63,7 +63,7 @@ class Register extends Component {
   render() {
     return (
       <div className="signup">
-        <div className="text-danger">{this.state.error}</div>
+        <div className="text-danger">{this.state.error && 'Please provide all the inputs!'}</div>
         <h3 className="text-center">Signup</h3>
         <form className='signup-form'>
           <div class="input-group mt-3">
@@ -113,7 +113,7 @@ class Register extends Component {
           <div className="text-center">
             <button
               onClick={this.signup_handler}
-              className="btn btn-primary">
+              className="btn btn-primary mt-3">
               Signup
             </button>
           </div>
