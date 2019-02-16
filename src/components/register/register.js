@@ -10,17 +10,60 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import burl from '../../url';
 // import axios from 'axios';
 class Register extends Component {
   constructor(props){
     super(props);
     this.state={
-      first_name:'',
-      last_name:'',
+      username:'',
+      phone:'',
       email:'',
-      password:''
+      password:'',
+      type:""
     }
   }
+  handleClick(event){
+    let url = burl+"/api/auth/signup/"
+    console.log(this.state)
+    let data = {
+      username:this.state.username,
+      password:this.state.password,
+      type : this.state.type,
+      phone : this.state.phone,
+      email : this.state.email
+
+     }
+     console.log(data)
+     // data = {
+       //   username : "ghjk",
+       //   password : "fgh"
+       // }
+       
+       
+       
+       console.log("login button pressed")
+        fetch(burl+"/api/auth/signup/", {
+         method: 'post',
+         headers: {
+           'Accept': 'application/json, text/plain, */*',
+           'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(data)
+       }).then(res=>res.json())
+         .then(res =>{
+           localStorage.setItem("token", res.token);
+           console.log(localStorage.getItem("token"))
+           console.log(res.token);
+         })
+         .catch(function(e) {
+           console.log(e); // "oh, no!"
+         })
+       }
+
+  handleChange = event => {
+    this.setState({ type: event.target.value });
+  };
   render() {
     return (
       <div>
@@ -52,7 +95,7 @@ class Register extends Component {
              floatingLabelText="password"
              value={this.state.value}
              onChange = {(event,newValue) => {
-              this.setState({username:this.he.value})
+              this.setState({password:this.he.value})
              }}
              />
            <br/>
@@ -66,7 +109,7 @@ class Register extends Component {
              floatingLabelText="email"
              value={this.state.value}
              onChange = {(event,newValue) => {
-              this.setState({username:this.he.value})
+              this.setState({email:this.he.value})
              }}
              />
            <br/>
@@ -80,7 +123,7 @@ class Register extends Component {
              floatingLabelText="phone"
              value={this.state.value}
              onChange = {(event,newValue) => {
-              this.setState({username:this.he.value})
+              this.setState({phone:this.he.value})
              }}
              />
              <br/>
