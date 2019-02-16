@@ -1,5 +1,4 @@
 {
-  "proxy": "https://codezilla.tk:8000",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -15,7 +14,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "proxy" : "https://codezilla.tk:8000",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

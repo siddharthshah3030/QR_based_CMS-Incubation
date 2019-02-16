@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Drawer from './drawer';
-
+import RentList from './rentList'
 
 class DashBoard extends React.Component {
     constructor(props){
@@ -11,7 +11,7 @@ class DashBoard extends React.Component {
 
       return (
         <div>
-            hello
+            <RentList/>
 
         </div>
       );

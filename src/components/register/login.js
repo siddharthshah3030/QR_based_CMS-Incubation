@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import burl from '../../url';
 
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import AppBar from '@material-ui/core/AppBar';
@@ -17,7 +18,6 @@ constructor(props){
 
 }
  handleClick(event){
-   let url = "http://codezilla.tk:8000/api/auth/signup/"
    console.log(this.state)
    let data = {
      username:this.state.username,
@@ -32,10 +32,10 @@ constructor(props){
       
       
       console.log("login button pressed")
-       fetch("/api/auth/signup/", {
+       fetch(burl +"/api/auth/login/", {
         method: 'post',
         headers: {
-          'Accept': 'application/json, text/plain, */*',
+          // 'Accept': 'application/json, text/plain, */*',
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
@@ -61,7 +61,7 @@ render() {
           <div>
           <AppBar             title="Login"
            />
-           {localStorage.getItem("token")}
+           {/* {localStorage.getItem("token")} */}
            <TextField
                 inputRef={el => this.he = el} 
 
