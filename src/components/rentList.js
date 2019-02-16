@@ -12,7 +12,7 @@ import Avatar from '@material-ui/core/Avatar';
 const styles = theme => ({
   root: {
     width: '100%',
-    maxWidth: 360,
+    maxWidth: '90%',
     backgroundColor: theme.palette.background.paper,
   },
 });
@@ -51,6 +51,8 @@ class CheckboxListSecondary extends React.Component {
                 src={`/static/images/avatar/${value + 1}.jpg`}
               />
             </ListItemAvatar>
+            <ListItemText primary={`Line item ${value + 1}`} />
+            <ListItemText primary={`Line item ${value + 1}`} />
             <ListItemText primary={`Line item ${value + 1}`} />
             <ListItemSecondaryAction>
               <Checkbox
