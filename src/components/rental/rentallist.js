@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from '../card.js' 
 import burl from '../../url';
-
+import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
+    CardSubtitle, CardBody } from 'reactstrap';
 
 class CategoryList extends React.Component {
   constructor(props){
@@ -27,7 +27,7 @@ componentWillMount() {
   }).then(res=>res.json())
     .then(res =>{
       console.log("fetching data")
-      console.log(res);
+    //   console.log(res);
       this.setState({
 
           data : res
@@ -35,13 +35,14 @@ componentWillMount() {
       )
     })
     .catch(function(e) {
-        console.log(burl); // "oh, no!"
+        // console.log(burl); // "oh, no!"
 
       console.log(e); // "oh, no!"
     })
 }
 
 render() {
+    console.log(this.state.data)
   var style = {
     // color: "white",
     // fontSize: 200,
@@ -49,22 +50,27 @@ render() {
     // marginTop: 100,
     // paddingTop: 100
   };
+  console.log(this.state.data[0])
+
+
   return (
-    <div style={style}>>
-    <div  style={{ display: 'inline-flex' }}  >
-    {/* <RentList/> */}
-    <Card  style={{ alignSelf: 'center' }} />
-    <Card  style={{ alignSelf: 'center' }}/>
+    <div style={style}>
+ <CardGroup>
+     {this.state.data.map( e =>{
 
-</div>
 
-  <br/>
-<div  style={{ display: 'inline-flex' }} >
-    {/* <RentList/> */}
-    <Card  style={{ alignSelf: 'center' }} />
-    <Card  style={{ alignSelf: 'center' }}/>
+     })}
+      <Card>
+        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+          <Button>Button</Button>
+        </CardBody>
+      </Card>
 
-</div>
+    </CardGroup>
   
 </div>
   )
