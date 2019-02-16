@@ -16,26 +16,21 @@ export default class Test extends Component {
         result: data
       });
     }
+    this.props.handler_qr_data(data)
   }
   handleError(err) {
     console.error(err);
   }
   render() {
-    var style = {
-        color: 'black',
-        fontSize: 20,
-        marginTop : 50,
-        paddingTop : 50
-      };
     return (
-      <div  style={style} className="qr-scanner">
+      <div className="qr-scanner">
         <QrReader
           delay={this.state.delay}
           onError={this.handleError}
           onScan={this.handleScan}
           style={{ width: "100%" }}
         />
-        <p style={style} >{this.state.result}</p>
+        {/* <p style={style} >{this.state.result}</p> */}
       </div>
     );
   }
