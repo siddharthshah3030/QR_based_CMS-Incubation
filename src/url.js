@@ -1,1 +1,1 @@
-export default "https://codezilla.tk:8000"
+export default "http://codezilla.tk:8000"

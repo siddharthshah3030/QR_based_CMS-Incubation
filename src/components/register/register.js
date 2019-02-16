@@ -20,7 +20,7 @@ class Register extends Component {
       phone:'',
       email:'',
       password:'',
-      type:""
+      user_type:""
     }
   }
   handleClick(event){
@@ -29,7 +29,7 @@ class Register extends Component {
     let data = {
       username:this.state.username,
       password:this.state.password,
-      type : this.state.type,
+      user_type : this.state.user_type,
       phone : this.state.phone,
       email : this.state.email
 
@@ -52,9 +52,11 @@ class Register extends Component {
          body: JSON.stringify(data)
        }).then(res=>res.json())
          .then(res =>{
+           if(!res.error)
            localStorage.setItem("token", res.token);
+           console.log(res);
+
            console.log(localStorage.getItem("token"))
-           console.log(res.token);
          })
          .catch(function(e) {
            console.log(e); // "oh, no!"
@@ -62,7 +64,7 @@ class Register extends Component {
        }
 
   handleChange = event => {
-    this.setState({ type: event.target.value });
+    this.setState({ user_type: event.target.value });
   };
   render() {
     return (
@@ -73,7 +75,7 @@ class Register extends Component {
              title="Register"
            />
                   <TextField
-                inputRef={el => this.he = el} 
+                inputRef={el => this.a = el} 
 
                 label="username"
                 margin="normal"
@@ -81,13 +83,13 @@ class Register extends Component {
              floatingLabelText="Username"
              value={this.state.value}
              onChange = {(event,newValue) => {
-              this.setState({username:this.he.value})
+              this.setState({username:this.a.value})
              }}
              />
            <br/>
            <br/>
            <TextField
-                inputRef={el => this.he = el} 
+                inputRef={el => this.b = el} 
 
                 label="password"
                 margin="normal"
@@ -95,13 +97,13 @@ class Register extends Component {
              floatingLabelText="password"
              value={this.state.value}
              onChange = {(event,newValue) => {
-              this.setState({password:this.he.value})
+              this.setState({password:this.b.value})
              }}
              />
            <br/>
            <br/>
            <TextField
-                inputRef={el => this.he = el} 
+                inputRef={el => this.c = el} 
 
                 label="email"
                 margin="normal"
@@ -109,13 +111,13 @@ class Register extends Component {
              floatingLabelText="email"
              value={this.state.value}
              onChange = {(event,newValue) => {
-              this.setState({email:this.he.value})
+              this.setState({email:this.c.value})
              }}
              />
            <br/>
            <br/>
            <TextField
-                inputRef={el => this.he = el} 
+                inputRef={el => this.d = el} 
 
                 label="phone"
                 margin="normal"
@@ -123,7 +125,7 @@ class Register extends Component {
              floatingLabelText="phone"
              value={this.state.value}
              onChange = {(event,newValue) => {
-              this.setState({phone:this.he.value})
+              this.setState({phone:this.d.value})
              }}
              />
              <br/>
@@ -165,7 +167,7 @@ const style = {
 };
 export default Register;
 
-
+//localStorage.removeItem('token')
 
 // handleClick(event){
 //     var apiBaseUrl = "http://localhost:4000/api/";
