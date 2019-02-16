@@ -7,8 +7,7 @@ class CategoryList extends React.Component {
   constructor(props){
     super(props);
     this.state={
-    username:'',
-    password:''
+        data: ""
     }
     // this.handlePassword = this.handlePassword.bind(this);
     // this.handleUsername= this.handleUsername.bind(this);
@@ -16,6 +15,7 @@ class CategoryList extends React.Component {
   }
 
 componentWillMount() {
+    console.log("making fetch request")
   fetch(burl +"/api/resources/list/", {
     method: 'get',
     headers: {
@@ -28,8 +28,15 @@ componentWillMount() {
     .then(res =>{
       console.log("fetching data")
       console.log(res);
+      this.setState({
+
+          data : res
+      }
+      )
     })
     .catch(function(e) {
+        console.log(burl); // "oh, no!"
+
       console.log(e); // "oh, no!"
     })
 }
@@ -44,7 +51,7 @@ render() {
   };
   return (
     <div style={style}>>
-    <div  style={{ display: 'inline-flex' }} >
+    <div  style={{ display: 'inline-flex' }}  >
     {/* <RentList/> */}
     <Card  style={{ alignSelf: 'center' }} />
     <Card  style={{ alignSelf: 'center' }}/>
