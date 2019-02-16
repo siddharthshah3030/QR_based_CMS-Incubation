@@ -15,6 +15,32 @@ export default class Example extends React.Component {
       activeTab: '1'
     };
   }
+  componentwillmount(){
+    var data = [
+      {
+          "id": 1,
+          "items": [
+              {
+                  "id": 2,
+                  "name": "test",
+                  "user": 28,
+                  "price": 23.0,
+                  "booked": false,
+                  "start_time": "2019-02-19T12:34:40.640458Z",
+                  "end_time": "2019-02-24T12:34:40.640458Z",
+                  "description": "dsf",
+                  "instructions": "sfsd",
+                  "img": "/media/item/161567264216546p_Olh9HVv.jpeg",
+                  "authorised": true,
+                  "resource": 1
+              }
+          ],
+          "category": "Seats",
+          "img": "/media/161567264216546p.jpeg",
+          "description": "these are seats"
+      }
+
+    }]
 
   toggle(tab) {
     if (this.state.activeTab !== tab) {
@@ -51,6 +77,7 @@ export default class Example extends React.Component {
             <Row>
               <Col sm="12">
                 <h4>Tab 1 Contents</h4>
+                <h6>description of cateogry</h6>
               </Col>
             </Row>
 
@@ -58,9 +85,12 @@ export default class Example extends React.Component {
         <thead>
           <tr>
             <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Already booked</th>
+            <th>Resource</th>
+            <th>Check to book</th>
             
           </tr>
         </thead>
@@ -68,6 +98,8 @@ export default class Example extends React.Component {
           <tr>
             <th scope="row">1</th>
             <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
             <td>Otto</td>
             <td>@mdo</td>
             <td><CustomInput type="checkbox" id="exampleCustomCheckbox" label="Check this custom checkbox" />
