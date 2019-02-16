@@ -3,6 +3,13 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { withStyles } from '@material-ui/core/styles';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 // import axios from 'axios';
 class Register extends Component {
   constructor(props){
@@ -22,39 +29,84 @@ class Register extends Component {
           <AppBar
              title="Register"
            />
-           <TextField
-            label="First Name"
-            margin="normal"
-             hintText="Enter your First Name"
-             floatingLabelText="First Name"
-             onChange = {(event,newValue) => this.setState({first_name:newValue})}
+                  <TextField
+                inputRef={el => this.he = el} 
+
+                label="username"
+                margin="normal"
+             hintText="Enter your Username"
+             floatingLabelText="Username"
+             value={this.state.value}
+             onChange = {(event,newValue) => {
+              this.setState({username:this.he.value})
+             }}
              />
            <br/>
-           <TextField
-            label="Last Name"
-            margin="normal"
-             hintText="Enter your Last Name"
-             floatingLabelText="Last Name"
-             onChange = {(event,newValue) => this.setState({last_name:newValue})}
-             />
            <br/>
            <TextField
-            label="Email"
-            margin="normal"
-             hintText="Enter your Email"
-             type="email"
-             floatingLabelText="Email"
-             onChange = {(event,newValue) => this.setState({email:newValue})}
+                inputRef={el => this.he = el} 
+
+                label="password"
+                margin="normal"
+             hintText="Enter your password"
+             floatingLabelText="password"
+             value={this.state.value}
+             onChange = {(event,newValue) => {
+              this.setState({username:this.he.value})
+             }}
              />
            <br/>
+           <br/>
            <TextField
-            label="Password"
-            margin="normal"
-             type = "password"
-             hintText="Enter your Password"
-             floatingLabelText="Password"
-             onChange = {(event,newValue) => this.setState({password:newValue})}
+                inputRef={el => this.he = el} 
+
+                label="email"
+                margin="normal"
+             hintText="Enter your email"
+             floatingLabelText="email"
+             value={this.state.value}
+             onChange = {(event,newValue) => {
+              this.setState({username:this.he.value})
+             }}
              />
+           <br/>
+           <br/>
+           <TextField
+                inputRef={el => this.he = el} 
+
+                label="phone"
+                margin="normal"
+             hintText="Enter your phone"
+             floatingLabelText="phone"
+             value={this.state.value}
+             onChange = {(event,newValue) => {
+              this.setState({username:this.he.value})
+             }}
+             />
+             <br/>
+                     <FormControl component="fieldset" >
+          <FormLabel component="legend">Gender</FormLabel>
+          <RadioGroup
+            aria-label="Role"
+            name="Role"
+            value={this.state.value}
+            onChange={this.handleChange}
+          >
+            <FormControlLabel value="Startup Worker" control={<Radio />} label="FemalStartup Worker" />
+            <FormControlLabel value="Receptionist" control={<Radio />} label="Receptionist" />
+            <FormControlLabel value="Librarian" control={<Radio />} label="Librarian" />
+            <FormControlLabel value="Gaurd" control={<Radio />} label="Gaurd" />
+            <FormControlLabel value="Cafeteria" control={<Radio />} label="Cafeteria" />
+            <FormControlLabel value="Others" control={<Radio />} label="Other" />
+            <FormControlLabel
+              value="Admin"
+              disabled
+              control={<Radio />}
+              label="(Disabled option)"
+            />
+          </RadioGroup>
+        </FormControl>
+           <br/>
            <br/>
            <Button variant="contained" color="primary"  onClick={(event) => this.handleClick(event)}>
              Submit

@@ -17,22 +17,22 @@ constructor(props){
 
 }
  handleClick(event){
-     console.log("login button pressed")
-        let url = "http://codezilla.tk:8000/api/auth/signup/"
-        console.log(this.state)
-       let data = {
-        username:this.state.username,
-        password:this.state.password
-        }
-        console.log(data)
-        // data = {
-        //   username : "ghjk",
-        //   password : "fgh"
-        // }
-
-
-
-       fetch("http://codezilla.tk:8000/api/auth/signup/", {
+   let url = "http://codezilla.tk:8000/api/auth/signup/"
+   console.log(this.state)
+   let data = {
+     username:this.state.username,
+     password:this.state.password
+    }
+    console.log(data)
+    // data = {
+      //   username : "ghjk",
+      //   password : "fgh"
+      // }
+      
+      
+      
+      console.log("login button pressed")
+       fetch("/api/auth/signup/", {
         method: 'post',
         headers: {
           'Accept': 'application/json, text/plain, */*',
