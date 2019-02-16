@@ -3,8 +3,8 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import Button from '@material-ui/core/Button';
-import Login from './register/login';
-import Register from './register/register';
+import Login from './Auth/login';
+import Register from './Auth/register';
 class Loginscreen extends Component {
   constructor(props){
     super(props);

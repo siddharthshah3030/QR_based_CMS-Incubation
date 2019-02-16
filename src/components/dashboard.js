@@ -14,12 +14,6 @@ class DashBoard extends React.Component {
     console.log(props);
   }
   render() {
-    var style = {
-      color: "white",
-      fontSize: 200,
-      marginTop: 50,
-      paddingTop: 50
-    };
     return (
       <div>
         <div >

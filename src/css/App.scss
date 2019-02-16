@@ -1,0 +1,31 @@
+@import './bootstrap.css';
+
+.cover-pic{
+  background: url('../assets/back-img.jpg');
+  background-size: cover;
+}
+
+.qr-scanner {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+.auth{
+  min-height: 100vh;
+  .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.text-center{
+  text-align: center;
+}
+
+.signup{
+  input{
+    display: block;
+  }
+}
