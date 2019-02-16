@@ -15,8 +15,8 @@ class Register extends Component {
     this.phone = document.querySelector('#phone')
     this.user_type = document.querySelector('#user_type')
   }
-  
-  
+
+
   signup_handler = (event) => {
     event.preventDefault()
     let data = {
@@ -38,10 +38,15 @@ class Register extends Component {
     }).then(res => res.json())
       .then(res => {
         console.log(res);
-        if (!res.error){
+        if (!res.error) {
           localStorage.setItem("token", res.token);
-          this.props.history.push('/dashboard/')
-        }else{
+          localStorage.setItem("uid", res.id);
+          if(res.user_type=='Startup Worker'){
+            this.props.history.push('/dashboard/')
+          }else{
+            this.props.history.push('/staff/')
+          }
+        } else {
           this.setState({
             ...this.state,
             error: 'Please the check the inputs'

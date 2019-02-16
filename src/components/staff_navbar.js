@@ -1,22 +1,25 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 
-export default class menubar extends Component {
+class menubar extends Component {
+    sign_out_handler = (e) => {
+        e.preventDefault()
+
+        localStorage.removeItem('token')
+        localStorage.removeItem('uid')
+        this.props.history.push('/')
+    }
+    
     render() {
         return (
             <div>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <nav class="nav-wrapper">
                     <div className="container">
-                        <div className='nnavbar'>
-                            <div>
-
-                            </div>
-                            <div>
-                                
-                            </div>
-                            <div className='logout-btn text-primary'>
-                                <i className="fa fa-sign-out"></i>
-                            </div>
+                        <div className="cnav">
+                            <NavLink className="" to="/staff/visitor/">Visitor</NavLink>
+                            <NavLink className="" to="/staff/librarian/">Librarian</NavLink>
+                            <NavLink className="" to="/staff/caffeteria/">Caffeteria</NavLink>
+                            <NavLink className="" onClick={this.sign_out_handler} to="/staff/price/">Signout</NavLink>
                         </div>
                     </div>
                 </nav>
@@ -24,3 +27,5 @@ export default class menubar extends Component {
         )
     }
 }
+
+export default withRouter(menubar)
