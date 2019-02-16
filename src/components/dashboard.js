@@ -8,6 +8,7 @@ import QrScanner from "./qrscanner";
 import { Switch, Route, withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import ItemList from "./rental/itemList.js";
+import ItemBook from "./rental/itemBook.js";
 class DashBoard extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +24,7 @@ class DashBoard extends React.Component {
               {/* <Route  path="/dashboard/code" component={QrCodeValue} /> */}
               <Route  path="/dashboard/rental" component={Rental} />
               <Route  path="/dashboard/itemlist" component={ItemList} />
+              <Route  path="/dashboard/itembook" component={ItemBook} />
               {/* <Route path="/dashboard/rentlist" component={RentList} /> */}
             </Switch>
           </div>
