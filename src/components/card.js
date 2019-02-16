@@ -1,57 +1,39 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import { Card, Button, CardImg, CardTitle, CardText, CardGroup,
+ CardSubtitle, CardBody } from 'reactstrap';
 
-const styles = {
-  card: {
-    maxWidth: 300,
-  },
-  media: {
-    height: 140,
-  },
-};
-
-function MediaCard(props) {
-  const { classes } = props;
+const Example = (props) => {
   return (
-    <Card className={classes.card}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/labimage.jpeg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            category
-          </Typography>
-          <Typography component="p">
-            description description description description 
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="default">
-          no. of items
-        </Button>
-        <Button size="small" color="primary">
-          Book
-        </Button>
-      </CardActions>
-    </Card>
+    <CardGroup>
+      <Card>
+        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+          <Button>Button</Button>
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+          <Button>Button</Button>
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
+          <Button>Button</Button>
+        </CardBody>
+      </Card>
+    </CardGroup>
   );
-}
-
-MediaCard.propTypes = {
-  classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MediaCard);
+export default Example;
