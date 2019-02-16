@@ -50,16 +50,45 @@ render() {
     // marginTop: 100,
     // paddingTop: 100
   };
-  console.log(this.state.data[0])
+  var str = JSON.stringify(this.state.dat, null, 4); // (Optional) beautiful indented output.
+console.log(this.state.dat); // Logs output to dev tools console.
+  // console.log(typeof(this.state.data[0]))
 
 
   return (
     <div style={style}>
  <CardGroup>
-     {this.state.data.map( e =>{
-
-
-     })}
+{/* 
+   { this.state.data.forEach(function(element) {
+  console.log(element);
+})} */}
+      <Card>
+        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+          <Button>Button</Button>
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+          <Button>Button</Button>
+        </CardBody>
+      </Card>
+      <Card>
+        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+        <CardBody>
+          <CardTitle>Card title</CardTitle>
+          <CardSubtitle>Card subtitle</CardSubtitle>
+          <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+          <Button>Button</Button>
+        </CardBody>
+      </Card>
       <Card>
         <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
         <CardBody>
