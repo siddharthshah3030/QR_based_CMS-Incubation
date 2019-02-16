@@ -6,7 +6,7 @@ export default class Test extends Component {
     super(props);
     this.state = {
       delay: 300,
-      result: "No result"
+      result: "Not scanner yet"
     };
     this.handleScan = this.handleScan.bind(this);
   }
@@ -21,15 +21,21 @@ export default class Test extends Component {
     console.error(err);
   }
   render() {
+    var style = {
+        color: 'black',
+        fontSize: 20,
+        marginTop : 50,
+        paddingTop : 50
+      };
     return (
-      <div>
+      <div className="qr-scanner">
         <QrReader
           delay={this.state.delay}
           onError={this.handleError}
           onScan={this.handleScan}
           style={{ width: "100%" }}
         />
-        <p>{this.state.result}</p>
+        <p style={style} >{this.state.result}</p>
       </div>
     );
   }

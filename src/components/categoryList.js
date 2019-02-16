@@ -16,7 +16,7 @@ class CategoryList extends React.Component {
   }
 
 componentWillMount() {
-  fetch(burl +"/api/auth/login/", {
+  fetch(burl +"/api/resources/list/", {
     method: 'get',
     headers: {
       // 'Accept': 'application/json, text/plain, */*',
@@ -26,24 +26,39 @@ componentWillMount() {
     },
   }).then(res=>res.json())
     .then(res =>{
-      localStorage.setItem("token", res.token);
-      console.log(localStorage.getItem("token"))
-      console.log(res.token);
+      console.log("fetching data")
+      console.log(res);
     })
     .catch(function(e) {
-      console.log(e.message); // "oh, no!"
+      console.log(e); // "oh, no!"
     })
 }
 
 render() {
+  var style = {
+    // color: "white",
+    // fontSize: 200,
+    
+    // marginTop: 100,
+    // paddingTop: 100
+  };
   return (
+    <div style={style}>>
     <div  style={{ display: 'inline-flex' }} >
     {/* <RentList/> */}
     <Card  style={{ alignSelf: 'center' }} />
     <Card  style={{ alignSelf: 'center' }}/>
+
+</div>
+
+  <br/>
+<div  style={{ display: 'inline-flex' }} >
+    {/* <RentList/> */}
     <Card  style={{ alignSelf: 'center' }} />
     <Card  style={{ alignSelf: 'center' }}/>
 
+</div>
+  
 </div>
   )
 }

@@ -5,7 +5,8 @@ import categoryList from "./categoryList.js";
 import Card from "./card.js";
 import QrCodeValue from "./qrcode.js";
 import QrScanner from "./qrscanner";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 class DashBoard extends React.Component {
   constructor(props) {
@@ -16,17 +17,27 @@ class DashBoard extends React.Component {
     var style = {
       color: "white",
       fontSize: 200,
-      marginTop: 100,
-      paddingTop: 100
+      marginTop: 50,
+      paddingTop: 50
     };
     return (
       <div>
         <div style={style}>
           {/* <QrCodeValue style={style} /> */}
-          <Switch>
-            <Route path="/scanner" component={QrScanner} />
-            <Route path="/code" component={QrCodeValue} />
-          </Switch>
+          <div className="frame">
+            <Switch>
+              <Route path="/dashboard/scanner" component={QrScanner} />
+              <Route path="/dashboard/code" component={QrCodeValue} />
+              <Route path="/dashboard/rental" component={categoryList} />
+            </Switch>
+          </div>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => this.props.history.push('/dashboard/scanner')}
+          >
+            Scanner
+          </Button>
         </div>
       </div>
     );
@@ -55,4 +66,4 @@ class DashBoard extends React.Component {
   //       );
   //     }
 }
-export default DashBoard;
+export default withRouter(DashBoard);

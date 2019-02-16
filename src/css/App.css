@@ -1,3 +1,9 @@
+.qr-scanner {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
 .App {
   text-align: center;
 }
