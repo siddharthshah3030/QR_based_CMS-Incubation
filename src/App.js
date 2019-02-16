@@ -36,14 +36,15 @@ class App extends Component {
       });
   }
   render() {
+    
     return (
       <div className="App">
-        {this.state.loginPage}
-        {this.state.uploadScreen}
         <div>
           <Drawer />
           {/* <DashBoard/> */}
         </div>
+        {this.state.loginPage}
+        {this.state.uploadScreen}
       </div>
     );
   }
