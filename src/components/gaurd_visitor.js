@@ -50,7 +50,7 @@ export default class gaurd_visitor extends Component {
 
     render() {
         return (
-            <div className='gaurd'>
+            <div className='gaurd container'>
                 <div className="row">
                     <div className="col-md-6">
                         <div className="gaurd_qr_scanner">
