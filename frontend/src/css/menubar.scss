@@ -1,3 +1,6 @@
+a{
+    text-decoration: none;
+}
 .nav-wrapper{
     background: teal;
 }
@@ -5,27 +8,52 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
-
+    padding: 15px 0;
     a{
         display: inline-block;
         text-decoration: none;
         color: white;
-        padding: 15px 20px;
+        padding: 0 20px;
     }
 }
 #mobile_menu_btn{
     display: none;
 }
-@media (max-width: 768px){
+@media (max-width: 500px){
     #mobile_menu_btn{
         display: inline-block;
         border: 0;
         background: inherit;
+    }
+    .cnav a{
+        display: none;
+        font-size: 25px;
     }
 }
 button:focus{
     outline: none !important;
 }
 .open-nav{
-    background: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    .cnav{
+        display: block;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        a{
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+    #mobile_menu_btn{
+        position: fixed;
+        top: 30px;
+        right: 30px;
+    }
 }

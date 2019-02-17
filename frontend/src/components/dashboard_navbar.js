@@ -15,8 +15,11 @@ class menubar extends Component {
         this.props.history.push('/')
     }
 
-    open_menubar_handler = e => {
+    open_menubar_handler = (e,flag) => {
         console.log(this.nav_wrapper);
+        if(flag && !this.open){
+            return
+        }
         if (this.open) {
             this.nav_wrapper.classList.remove('open-nav')
         } else {
@@ -31,14 +34,14 @@ class menubar extends Component {
                 <nav className="nav-wrapper">
                     <div className="container">
                         <div className="cnav">
-                            <NavLink className="" to="/dashboard/visitor/">Visitor</NavLink>
-                            <NavLink className="" to="/dashboard/library/">Librarian</NavLink>
-                            <NavLink className="" to="/dashboard/caffeteria/">Caffeteria</NavLink>
-                            <NavLink className="" onClick={this.sign_out_handler} to="/staff/price/">Signout</NavLink>
+                            <NavLink onClick={(e) => this.open_menubar_handler(e,true)} to="/dashboard/visitor/">Visitor</NavLink>
+                            <NavLink onClick={(e) => this.open_menubar_handler(e,true)} to="/dashboard/library/">Librarian</NavLink>
+                            <NavLink onClick={(e) => this.open_menubar_handler(e,true)} to="/dashboard/caffeteria/">Caffeteria</NavLink>
+                            <NavLink onClick={(e) => this.open_menubar_handler(e,true)} onClick={this.sign_out_handler} to="/staff/price/">Signout</NavLink>
                             <button
                                 onClick={this.open_menubar_handler}
                                 id="mobile_menu_btn">
-                                <i className="fa fa-bars"></i>
+                                <i className="fa fa-2x fa-bars"></i>
                             </button>
                         </div>
                     </div>

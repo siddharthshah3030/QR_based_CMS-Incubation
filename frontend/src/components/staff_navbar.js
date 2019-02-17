@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { NavLink, withRouter } from 'react-router-dom'
 
 class menubar extends Component {
+    open = false
+    componentDidMount = () => {
+        this.nav_wrapper = document.querySelector('.nav-wrapper')
+    }
+
     sign_out_handler = (e) => {
         e.preventDefault()
 
@@ -9,18 +14,36 @@ class menubar extends Component {
         localStorage.removeItem('uid')
         this.props.history.push('/')
     }
-    
+
+    open_menubar_handler = (e, flag) => {
+        console.log(this.nav_wrapper);
+        if (flag && !this.open) {
+            return
+        }
+        if (this.open) {
+            this.nav_wrapper.classList.remove('open-nav')
+        } else {
+            this.nav_wrapper.classList.add('open-nav')
+        }
+        this.open = !this.open
+    }
+
     render() {
         return (
             <div>
-                <nav class="nav-wrapper">
+                <nav className="nav-wrapper">
                     <div className="container">
                         <div className="cnav">
-                            <NavLink className="" to="/staff/">Home</NavLink>
-                            <NavLink className="" to="/staff/visitor/">Visitor</NavLink>
-                            <NavLink className="" to="/staff/librarian/">Librarian</NavLink>
-                            <NavLink className="" to="/staff/caffeteria/">Caffeteria</NavLink>
-                            <NavLink className="" onClick={this.sign_out_handler} to="/staff/price/">Signout</NavLink>
+                            <NavLink onClick={(e) => this.open_menubar_handler(e, true)} className="" to="/staff/">Home</NavLink>
+                            <NavLink onClick={(e) => this.open_menubar_handler(e, true)} className="" to="/staff/visitor/">Visitor</NavLink>
+                            <NavLink onClick={(e) => this.open_menubar_handler(e, true)} className="" to="/staff/librarian/">Librarian</NavLink>
+                            <NavLink onClick={(e) => this.open_menubar_handler(e, true)} className="" to="/staff/caffeteria/">Caffeteria</NavLink>
+                            <NavLink onClick={this.sign_out_handler} to="/staff/price/">Signout</NavLink>
+                            <button
+                                onClick={this.open_menubar_handler}
+                                id="mobile_menu_btn">
+                                <i className="fa fa-2x fa-bars"></i>
+                            </button>
                         </div>
                     </div>
                 </nav>
