@@ -47,7 +47,7 @@ class Login extends Component {
         localStorage.setItem("uid", res.id);
 
         if (res.user === 'Startup Worker') {
-          this.props.history.push('/dashboard/')
+          this.props.history.push('/dashboard/visitor/')
         } else {
           this.props.history.push('/staff/')
         }

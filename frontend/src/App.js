@@ -5,13 +5,14 @@ import "./css/App.scss";
 import Auth from './components/auth/auth'
 import Dashboard from './components/dashboard'
 import Staff from './components/staff'
-
+import QRshow from './components/showqr'
 
 class App extends Component {
   render() {
     return (
       <div>
         <Switch>
+          <Route path='/qr/' component={QRshow} />
           <Route path='/staff/' component={Staff} />
           <Route path='/dashboard/' component={Dashboard} />
           <Route path='/' component={Auth} />

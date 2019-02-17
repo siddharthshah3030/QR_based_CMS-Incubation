@@ -50,7 +50,7 @@ class Register extends Component {
         localStorage.setItem("token", res.token);
         localStorage.setItem("uid", res.id);
         if (res.user_type === 'Startup Worker') {
-          this.props.history.push('/dashboard/')
+          this.props.history.push('/dashboard/visitor/')
         } else {
           this.props.history.push('/staff/')
         }

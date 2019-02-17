@@ -2,21 +2,12 @@ import React, { Component } from 'react'
 import burl from '../url'
 import { NavLink, Switch, Route } from 'react-router-dom'
 import Ucafe_menu from './cafe/ucafe_menu'
-import Ucafe_history from './cafe/ucafe_history'
-import ucafe_history from './cafe/ucafe_history';
+import ucafe_history from './cafe/ucafe_history'
 import ucafe_menu from './cafe/ucafe_menu';
+import ucafe_checkout from './cafe/ucafe_checkout';
 
-let curl = '/dashboard/caffeteria/'
+let curl = '/dashboard/cafe/'
 export default class dashboard_cafe extends Component {
-    state = {
-        menu: []
-    }
-
-    componentDidMount = () => {
-        
-    }
-
-
     render() {
         return (
             <div>
@@ -32,6 +23,7 @@ export default class dashboard_cafe extends Component {
                     <div className="mt-5">
                         <Switch>
                             <Route path={curl+'previous_orders/'} component={ucafe_history} />
+                            <Route path={curl+'checkout/'} component={ucafe_checkout} />
                             <Route path={curl} component={ucafe_menu} />
                         </Switch>
                     </div>

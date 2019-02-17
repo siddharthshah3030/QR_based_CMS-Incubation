@@ -24,7 +24,7 @@ class DashBoard extends React.Component {
               <Route path="/dashboard/rental" component={Rental} />
               <Route path="/dashboard/itemlist" component={ItemList} />qas
               <Route path="/dashboard/itembook" component={ItemBook} />
-              <Route path="/dashboard/caffeteria" component={Dcafe} />
+              <Route path="/dashboard/cafe" component={Dcafe} />
               {/* <Route path="/dashboard/rentlist" component={RentList} /> */}
             </Switch>
           </div>

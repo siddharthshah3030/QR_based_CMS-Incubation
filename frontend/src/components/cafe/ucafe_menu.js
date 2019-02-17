@@ -44,7 +44,7 @@ export default class ucafe_menu extends Component {
     }
 
     gmenu = (item, i) => {
-        console.log(item);
+        // console.log(item);
         let menuname = <h2 className='mt-3'>{item.name}</h2>
         let menuitems = item.items.map((ele, j) => (
             <tr>
@@ -91,6 +91,16 @@ export default class ucafe_menu extends Component {
 
         return (
             <div>
+                <div className="text-right">
+                    <button
+                        onClick={() => this.props.history.push({
+                            pathname: '/dashboard/cafe/checkout/',
+                            state: this.state
+                        })}
+                        className="btn btn-primary">
+                        <span>Proceed to checkout</span>
+                    </button>
+                </div>
                 {hmenu}
             </div>
         )
