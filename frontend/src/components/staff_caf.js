@@ -72,7 +72,7 @@ export default class gaurd_visitor extends Component {
             .catch(function (e) {
                 console.log(e); // "oh, no!"
             })
-            this.fetch_visitors()
+        this.fetch_visitors()
     }
 
     render() {
@@ -145,14 +145,14 @@ export default class gaurd_visitor extends Component {
                     </thead>
                     <tbody>
                         {
-                            this.state.visitors.map((ele,i)=>(
-                            <tr>
-                                <td>{i+2}</td>
-                                <td>{ele.enter_r_exit}</td>
-                                <td>{ele.visitor_id}</td>
-                                <td>{ele.visitor_name}</td>
-                                <td>{Date(ele.time).toString().slice(0,15)}</td>
-                            </tr>
+                            this.state.visitors.map((ele, i) => (
+                                <tr>
+                                    <td>{i + 2}</td>
+                                    <td>{ele.enter_r_exit}</td>
+                                    <td>{ele.visitor_id}</td>
+                                    <td>{ele.visitor_name}</td>
+                                    <td>{Date(ele.time).toString().slice(0, 15)}</td>
+                                </tr>
                             ))
                         }
                     </tbody>

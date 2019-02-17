@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Switch, Route } from "react-router-dom";
 
 import Visitor from './gaurd_visitor'
+import Staff_caf from './staff_caf'
 import Navbar from './staff_navbar'
 
 export default class staff extends Component {
@@ -10,11 +11,9 @@ export default class staff extends Component {
             <div>
                 <Navbar />
                 <Switch>
+                    <Route path="/staff/caffeteria/" component={Staff_caf} />
                     <Route path="/staff/visitor/" component={Visitor} />
                     <Route path="/staff/" component={Visitor} />
-                    {/* <Route path="/dashboard/code" component={QrCodeValue} />
-                    <Route path="/dashboard/rental" component={categoryList} />
-                    <Route path="/dashboard/rentlist" component={RentList} /> */}
                 </Switch>
             </div>
         )

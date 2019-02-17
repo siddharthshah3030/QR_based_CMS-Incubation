@@ -1,6 +1,11 @@
 a{
-    text-decoration: none;
+    text-decoration: none !important;
+    &:hover,
+    &:focus{
+        color: black;
+    }
 }
+
 .nav-wrapper{
     background: teal;
 }

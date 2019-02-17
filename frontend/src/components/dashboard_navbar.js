@@ -34,10 +34,10 @@ class menubar extends Component {
                 <nav className="nav-wrapper">
                     <div className="container">
                         <div className="cnav">
-                            <NavLink onClick={(e) => this.open_menubar_handler(e,true)} to="/dashboard/visitor/">Visitor</NavLink>
-                            <NavLink onClick={(e) => this.open_menubar_handler(e,true)} to="/dashboard/library/">Librarian</NavLink>
-                            <NavLink onClick={(e) => this.open_menubar_handler(e,true)} to="/dashboard/caffeteria/">Caffeteria</NavLink>
-                            <NavLink onClick={(e) => this.open_menubar_handler(e,true)} onClick={this.sign_out_handler} to="/staff/price/">Signout</NavLink>
+                            <NavLink activeClassName='font-weight-bold text-dark' onClick={(e) => this.open_menubar_handler(e,true)} to="/dashboard/visitor/">Visitor</NavLink>
+                            <NavLink activeClassName='font-weight-bold text-dark' onClick={(e) => this.open_menubar_handler(e,true)} to="/dashboard/library/">Librarian</NavLink>
+                            <NavLink activeClassName='font-weight-bold text-dark' onClick={(e) => this.open_menubar_handler(e,true)} to="/dashboard/caffeteria/">Caffeteria</NavLink>
+                            <NavLink activeClassName='font-weight-bold text-dark' onClick={(e) => this.open_menubar_handler(e,true)} onClick={this.sign_out_handler} to="/staff/price/">Signout</NavLink>
                             <button
                                 onClick={this.open_menubar_handler}
                                 id="mobile_menu_btn">
