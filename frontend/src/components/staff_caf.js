@@ -14,7 +14,7 @@ export default class gaurd_visitor extends Component {
             this.setState({
                 ...this.state,
                 qrcode_active: false,
-                uid: data
+                oid: data
             })// end of setstate
 
 
@@ -22,12 +22,12 @@ export default class gaurd_visitor extends Component {
     }
 
     componentDidMount = () => {
-        this.fetch_visitors()
+        this.fetch_menu()
     }
 
-    fetch_visitors = () => {
+    fetch_menu = () => {
         console.log('fetch')
-        fetch(burl + `/api/visitors/list/`, {
+        fetch(burl + `/api/cafe/category/`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage['token']
@@ -37,7 +37,7 @@ export default class gaurd_visitor extends Component {
                 console.log(res);
                 this.setState({
                     ...this.state,
-                    visitors: res,
+                    menu: res,
                 })// end of setstate
             })
             .catch(function (e) {
@@ -46,34 +46,34 @@ export default class gaurd_visitor extends Component {
     }
 
 
-    visit_handler = (route) => {
-        let token = localStorage['token']
-        console.log(token)
+    // visit_handler = (route) => {
+    //     let token = localStorage['token']
+    //     console.log(token)
 
-        fetch(burl + `/api/visitors/${route}/`, {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
-            },
-            body: JSON.stringify({
-                vid: this.state.uid
-            })
-        }).then(res => res.json())
-            .then(res => {
-                console.log(res);
-                this.setState({
-                    ...this.state,
-                    ...res,
-                    time: Date(res.time).toString().slice(0, 15),
-                    qrcode_active: true
-                })// end of setstate
-            })
-            .catch(function (e) {
-                console.log(e); // "oh, no!"
-            })
-        this.fetch_visitors()
-    }
+    //     fetch(burl + `/api/visitors/${route}/`, {
+    //         method: 'post',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Authorization': localStorage['token']
+    //         },
+    //         body: JSON.stringify({
+    //             vid: this.state.uid
+    //         })
+    //     }).then(res => res.json())
+    //         .then(res => {
+    //             console.log(res);
+    //             this.setState({
+    //                 ...this.state,
+    //                 ...res,
+    //                 time: Date(res.time).toString().slice(0, 15),
+    //                 qrcode_active: true
+    //             })// end of setstate
+    //         })
+    //         .catch(function (e) {
+    //             console.log(e); // "oh, no!"
+    //         })
+    //     this.fetch_visitors()
+    // }
 
     render() {
         return (
@@ -85,16 +85,6 @@ export default class gaurd_visitor extends Component {
                                 <QrScanner handler_qr_data={this.handler_qr_data} />
                             }
                         </div>
-                        {!this.state.qrcode_active &&
-                            <div className='text-center mt-4'>
-                                <button
-                                    onClick={() => this.visit_handler('enter')}
-                                    id="gaurd_scan" className="btn btn-dark mx-3">Enter</button>
-                                <button
-                                    onClick={() => this.visit_handler('exit')}
-                                    id="gaurd_scan" className=" btn btn-dark mx-3">Exit</button>
-                            </div>
-                        }
                     </div>
                     <div className="col-md-6">
                         <h3 className="text-center">Person details</h3>
