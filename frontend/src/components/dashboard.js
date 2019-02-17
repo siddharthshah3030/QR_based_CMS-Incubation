@@ -1,14 +1,11 @@
-import React, { Component } from "react";
-import Drawer from "./drawer";
+import React from "react";
 import Rental from "./rental/rentallist.js";
-import categoryList from "./categoryList.js";
-import Card from "./card.js";
 import Dashboard_code from './dashboard_code'
 import { Switch, Route, withRouter } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 import ItemList from "./rental/itemList.js";
 import ItemBook from "./rental/itemBook.js";
 import Navbar from './dashboard_navbar'
+import Dcafe from './dashboard_cafe'
 
 
 class DashBoard extends React.Component {
@@ -25,8 +22,9 @@ class DashBoard extends React.Component {
             <Switch>
               <Route path="/dashboard/visitor" component={Dashboard_code} />
               <Route path="/dashboard/rental" component={Rental} />
-              <Route path="/dashboard/itemlist" component={ItemList} />
+              <Route path="/dashboard/itemlist" component={ItemList} />qas
               <Route path="/dashboard/itembook" component={ItemBook} />
+              <Route path="/dashboard/caffeteria" component={Dcafe} />
               {/* <Route path="/dashboard/rentlist" component={RentList} /> */}
             </Switch>
           </div>
