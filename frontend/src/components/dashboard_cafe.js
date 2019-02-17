@@ -13,22 +13,7 @@ export default class dashboard_cafe extends Component {
     }
 
     componentDidMount = () => {
-        fetch(burl + `/api/cafe/category/`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
-            }
-        }).then(res => res.json())
-            .then(res => {
-                console.log(res);
-                this.setState({
-                    ...this.state,
-                    menu: res,
-                })// end of setstate
-            })
-            .catch(function (e) {
-                console.log(e); // "oh, no!"
-            })
+        
     }
 
 
