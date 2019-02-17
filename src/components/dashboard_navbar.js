@@ -19,6 +19,7 @@ class menubar extends Component {
                             <NavLink className="" to="/dashboard/visitor/">Visitor</NavLink>
                             <NavLink className="" to="/dashboard/library/">Librarian</NavLink>
                             <NavLink className="" to="/dashboard/caffeteria/">Caffeteria</NavLink>
+                            <NavLink className="" to="/dashboard/profile/">Profile</NavLink>
                             <NavLink className="" onClick={this.sign_out_handler} to="/staff/price/">Signout</NavLink>
                         </div>
                     </div>

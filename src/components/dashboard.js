@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import ItemList from "./rental/itemList.js";
 import ItemBook from "./rental/itemBook.js";
 import Navbar from './dashboard_navbar'
+import Profile from './staff_home.js'
 
 
 class DashBoard extends React.Component {
@@ -27,6 +28,7 @@ class DashBoard extends React.Component {
               <Route path="/dashboard/rental" component={Rental} />
               <Route path="/dashboard/itemlist" component={ItemList} />
               <Route path="/dashboard/itembook" component={ItemBook} />
+              <Route path="/dashboard/profile" component={Profile} />
               {/* <Route path="/dashboard/rentlist" component={RentList} /> */}
             </Switch>
           </div>
