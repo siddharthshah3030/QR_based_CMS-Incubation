@@ -16,11 +16,13 @@ export default class showqr extends Component {
 
     render() {
         return (
-            <div className='dashboard-qr-code text-center mt-5'>
-                {this.state.qr ? <QRCode qrvalue={this.state.qr} /> : ''}
-                <buttton
-                    onClick={() => this.props.history.goBack()}
-                    className="btn btn-primary mt-3">GoBack</buttton>
+            <div className='dashboard-qr-code'>
+                <div>
+                    {this.state.qr ? <QRCode qrvalue={this.state.qr} /> : ''}
+                    <buttton
+                        onClick={() => this.props.history.goBack()}
+                        className="mt-3 btn btn-primary">GoBack</buttton>
+                </div>
             </div>
         )
     }
