@@ -13,3 +13,19 @@
         padding: 15px 20px;
     }
 }
+#mobile_menu_btn{
+    display: none;
+}
+@media (max-width: 768px){
+    #mobile_menu_btn{
+        display: inline-block;
+        border: 0;
+        background: inherit;
+    }
+}
+button:focus{
+    outline: none !important;
+}
+.open-nav{
+    background: #000;
+}

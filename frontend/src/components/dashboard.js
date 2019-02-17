@@ -23,7 +23,7 @@ class DashBoard extends React.Component {
           <Navbar />
           <div className="frame">
             <Switch>
-              <Route  path="/dashboard/visitor" component={Dashboard_code} />
+              <Route path="/dashboard/visitor" component={Dashboard_code} />
               <Route path="/dashboard/rental" component={Rental} />
               <Route path="/dashboard/itemlist" component={ItemList} />
               <Route path="/dashboard/itembook" component={ItemBook} />
@@ -35,27 +35,5 @@ class DashBoard extends React.Component {
     );
   }
 
-  //     render() {
-
-  //       return (
-  //         <div>
-  //         <div  style={{ display: 'inline-flex' }} >
-  //             {/* <RentList/> */}
-  //             <Card  style={{ alignSelf: 'center' }} />
-  //             <Card  style={{ alignSelf: 'center' }}/>
-
-  //         </div>
-  // <div>
-  // <div  style={{ display: 'inline-flex' }} >
-  //             {/* <RentList/> */}
-  //             <Card  style={{ alignSelf: 'center' }} />
-  //             <Card  style={{ alignSelf: 'center' }}/>
-
-  //         </div>
-  // </div>
-
-  //         </div>
-  //       );
-  //     }
 }
 export default withRouter(DashBoard);
