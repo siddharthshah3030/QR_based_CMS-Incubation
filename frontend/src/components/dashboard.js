@@ -8,6 +8,7 @@ import Navbar from './dashboard_navbar'
 import Dcafe from './dashboard_cafe'
 import Faq from './faq'
 import Home from './home'
+import Profile from './profile'
 
 class DashBoard extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class DashBoard extends React.Component {
               <Route path="/dashboard/cafe" component={Dcafe} />
               {/* <Route path="/dashboard/rentlist" component={RentList} /> */}
             </Switch>
+            {/* <Profile /> */}
           </div>
         </div>
       </div>
