@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import burl from '../../url'
+import Qrcode from '../qrcode'
 
 export default class ucafe_history extends Component {
     state = {

@@ -10,70 +10,66 @@ export default class gaurd_visitor extends Component {
     }
 
     handler_qr_data = (data) => {
-        if (data) {
-            this.setState({
-                ...this.state,
-                qrcode_active: false,
+        console.log(data)
+        // if (data) {
+        //     this.setState({
+        //         ...this.state,
+        //         order: data
+        //     })// end of setstate
+        // } else {
+        //     return
+        // }
+
+        fetch(burl + `/api/cafe/orderDelivery/`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': localStorage['token']
+            },
+            body: JSON.stringify({
                 oid: data
+            })
+        })
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                // this.setState({
+                //     ...this.state,
+                //     ...res,
+                //     time: Date(res.time).toString().slice(0, 15),
+                //     qrcode_active: true
             })// end of setstate
+            .catch(function (e) {
+                console.log(e); // "oh, no!"
+            })
+        // this.fetch_visitors()
 
-
-        }
     }
 
     componentDidMount = () => {
         this.fetch_menu()
     }
 
-    fetch_menu = () => {
-        console.log('fetch')
-        fetch(burl + `/api/cafe/category/`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': localStorage['token']
-            }
-        }).then(res => res.json())
-            .then(res => {
-                console.log(res);
-                this.setState({
-                    ...this.state,
-                    menu: res,
-                })// end of setstate
-            })
-            .catch(function (e) {
-                console.log(e); // "oh, no!"
-            })
-    }
-
-
-    // visit_handler = (route) => {
-    //     let token = localStorage['token']
-    //     console.log(token)
-
-    //     fetch(burl + `/api/visitors/${route}/`, {
-    //         method: 'post',
+    // fetch_menu = () => {
+    //     console.log('fetch')
+    //     fetch(burl + `/api/cafe/category/`, {
     //         headers: {
     //             'Content-Type': 'application/json',
     //             'Authorization': localStorage['token']
-    //         },
-    //         body: JSON.stringify({
-    //             vid: this.state.uid
-    //         })
+    //         }
     //     }).then(res => res.json())
     //         .then(res => {
     //             console.log(res);
     //             this.setState({
     //                 ...this.state,
-    //                 ...res,
-    //                 time: Date(res.time).toString().slice(0, 15),
-    //                 qrcode_active: true
+    //                 menu: res,
     //             })// end of setstate
     //         })
     //         .catch(function (e) {
     //             console.log(e); // "oh, no!"
     //         })
-    //     this.fetch_visitors()
     // }
+
 
     render() {
         return (

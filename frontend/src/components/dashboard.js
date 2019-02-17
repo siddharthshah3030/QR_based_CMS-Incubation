@@ -6,7 +6,8 @@ import ItemList from "./rental/itemList.js";
 import ItemBook from "./rental/itemBook.js";
 import Navbar from './dashboard_navbar'
 import Dcafe from './dashboard_cafe'
-
+import Faq from './faq'
+import Home from './home'
 
 class DashBoard extends React.Component {
   constructor(props) {
@@ -20,6 +21,8 @@ class DashBoard extends React.Component {
           <Navbar />
           <div className="frame">
             <Switch>
+              <Route path="/dashboard/home" component={Home} />
+              <Route path="/dashboard/faq" component={Faq} />
               <Route path="/dashboard/visitor" component={Dashboard_code} />
               <Route path="/dashboard/rental" component={Rental} />
               <Route path="/dashboard/itemlist" component={ItemList} />qas

@@ -16,6 +16,7 @@ export default class Test extends Component {
         result: data
       });
     }
+    // console.log(data);
     this.props.handler_qr_data(data)
   }
   handleError(err) {

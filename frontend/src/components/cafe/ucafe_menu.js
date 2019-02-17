@@ -51,7 +51,7 @@ export default class ucafe_menu extends Component {
                 <td>{j + 1}</td>
                 <td>{ele.name}</td>
                 <td>$ {ele.price}</td>
-                <td>
+                <td className='d-flex'>
                     <button
                         onClick={() => this.update_amount(i, j, -1)}
                         className="btn  btn-sm btn-danger mx-3">
