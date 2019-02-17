@@ -29,6 +29,8 @@ urlpatterns = [
     path('api/visitors/rent/', BooksRentView),
     path('api/visitors/list/', VisitorListView),
     # cafe
+    path('api/cafe/history/', cafeHistoryView),
+    path('api/cafe/place_order/', placeOrderView),
     path('api/cafe/', include(cafe_router.urls)),
 
     path('', TemplateView.as_view(template_name='index.html')),

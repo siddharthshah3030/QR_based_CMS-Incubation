@@ -27,7 +27,7 @@ class Item(models.Model):
 
 
 class Order(models.Model):
-    paid = models.BooleanField(default=False)
+    delivered = models.BooleanField(default=False)
     user = models.IntegerField(default=0)
 
 
@@ -37,7 +37,11 @@ class Order_items(models.Model):
         on_delete=models.CASCADE,
         related_name='items'
     )
-    item_id = models.IntegerField()
+    item = models.ForeignKey(
+        Item,
+        on_delete=models.CASCADE,
+        related_name='ordered'
+    )
     no_of_items = models.IntegerField()
 
 
@@ -55,15 +59,17 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class OrderSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Order
-        fields = '__all__'
-
-
 class OrderItemsSerializer(serializers.ModelSerializer):
-    items = ItemSerializer(many=True)
+    item = ItemSerializer()
 
     class Meta:
         model = Order_items
+        fields = '__all__'
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    items = OrderItemsSerializer(many=True)
+
+    class Meta:
+        model = Order
         fields = '__all__'

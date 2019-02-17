@@ -28,3 +28,27 @@ class OrderViewset(ModelViewSet):
 class OrderItemsViewset(ModelViewSet):
     queryset = Order_items.objects.all()
     serializer_class = OrderItemsSerializer
+
+
+@api_view(['post'])
+def placeOrderView(req):
+    data = JSONParser().parse(req)
+    order = Order.objects.create(
+        user=req.user.id,
+    )
+    for x in data.get('items'):
+        item = Item.objects.get(pk=x.get('id'))
+        Order_items.objects.create(
+            order=order,
+            item=item,
+            no_of_items=x.get('amount')
+        )
+
+    return Response({})
+
+
+@api_view(['get'])
+def cafeHistoryView(req):
+    orders = Order.objects.filter(user=req.user.id)
+    orders = OrderSerializer(orders, many=True)
+    return Response(orders.data)
