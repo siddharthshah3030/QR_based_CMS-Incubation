@@ -29,7 +29,10 @@ To digitalize the management of large incubation center by proposing a giant CMS
 * [JSON Web Tokens](https://www.django-rest-framework.org/api-guide/authentication/) - for the implementing the authentication system
 
 
-
+## developed by
+- [Naveen](https://github.com/naveennvrgup)
+- [Siddharth](https://github.com/siddharthshah3030)
+- [Prachi](https://github.com/Prachiagrawal1)
 
 Deadline_Driven_Development
 
