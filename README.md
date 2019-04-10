@@ -1,12 +1,13 @@
 # Incubation Centre
-a giant content management system based on QR scanning and QR transactions
 
-use used_ID : nvrgup , password: jervismk2
+A giant content management system based on QR scanning and QR transactions
+Project made in Codeutsava-2019 hackathon
+Use used_ID : nvrgup , password: jervismk2
 
 
 
 ### innovative feature
-making every query and transaction confirmation by QR
+Making every query and transaction confirmation by QR
 ### Problem: 
 To digitalize the management of large incubation center by proposing a giant CMS with lot’s of features to keep track  of everything and making queries and work easier
 
